@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Payment - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+
+
+
+<section>
+    <div class="container pay-bg">
+        <div class="pay-body">
+            <h1>Payment</h1>
+            <p>You can make your payment here pending the time we integrates a payment system. All you just have to do is follow the instruction below</p>
+        <div class="pay-intrusction">
+            <ol>
+                <li>Copy the account number by the right</li>
+                <li>Select the bank name as seen on the right hand side</li>
+                <li>Pay the amount of $30</li>
+                <li>Then upload your payment</li>
+                <li>Then click pay</li>
+                <li>we will get back to you immediately via email</li>
+                <li></li>
+            </ol>
+
+            <div class="pay-data">
+                <p>Acc Number: 465323455</p>
+                <p>Account Name: Amitop LCC</p>
+                <p>Bank Name: First Bank</p>
+            </div>
+
+        </div>       
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div>
+                       <span class="upload-payment">Uploap payment Prove </span><input type="file" name="upload_pay">
+                        <input type="submit" value="Pay">
+                    </div>
+                </form>
+            
+        </div>
+        
+
+    </div>
+</section>
+
+{% endblock %}

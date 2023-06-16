@@ -1,0 +1,417 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Patient Scheduling - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+ 
+
+<section class="page-title bg-1" style="background-image: url('{% static "images/doctor.jpeg" %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Patient Scheduling</span>
+            <h1 class="text-capitalize mb-5 text-lg">Patient Scheduling</h1>
+  
+            <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">></span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">Schedule Appointment</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Intake</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <p style="color: green;">email us at: <a href="mailto:amitopcarellc@gmail.com">amitopcarellc@gmail.com</a></p>
+         <p style="color: green;">Call: +1-339-237-2599 </p> 
+         <P style="color: black;">Or Click the button below</P>
+         <p onclick="newIntake()" style="padding: 10px;
+         background-color: red;
+         color: white;
+         border-radius: 5px;
+         cursor: pointer;
+         box-shadow: 2px 8px 5px 0px rgba(0,0,0,0.75);
+       -webkit-box-shadow: 2px 8px 5px 0px rgba(0,0,0,0.75);
+       -moz-box-shadow: 2px 8px 5px 0px rgba(0,0,0,0.75); text-align: center;">Click to view Form</p>
+         
+        </div>
+        <div class="modal-footer">
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="schedule">
+    <div class="dots-bars-1"></div>
+    <div class="container" id="content-display1">
+        <br>
+        <br>
+        <div class="book-text">
+        <h3>Book Your Free Initial 15 min Telehealth Consultation</h3>
+    <p>Please select services type and your availibility to book your consultation with us.</p>
+</div>
+<div class="container">
+    <div class="container">
+    <div class="tab-container">
+        <div class="tab active1" id="t1" onclick="selectService()">
+            <i class="icofont-server"></i>
+            <p>Select Service</p>
+        </div>
+        <div class="tab" id="t5">
+          <i class="icofont-law-book"></i>
+          <p>Book As</p>
+      </div>
+        <div class="tab" id="t2">
+            <i class="icofont-ui-calendar"></i>
+            <p>Date & Time</p>
+        </div>
+        <div class="tab" id="t3">
+            <i class="icofont-files-stack"></i>
+            <p>Basic Details</p>
+        </div>
+        <div class="tab" id="t4">
+            <i class="icofont-law-document"></i>
+            <p>Summary</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="panel-container">
+      
+        <div class="space-panel1">
+          <div class="serve-content1">
+          <div class="mycar-aler">
+            <i class="icofont-power"></i><p>Please select any service to book an appointment</p>
+          </div>
+        
+        <div class="select-service">
+          <a id="service">Select Service</a>
+        </div>
+        
+        <div class="row ailment-panel">
+          {% for i in ailment_list %}
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="service-item mb-4">
+              <div class="icon d-flex align-items-center pick-treat"  data-pk="{{ i.pk }}">
+                {% if i.image_icon %}
+                <img src="{{ i.image_icon.url }}" alt="" srcset="">
+                {% endif %}
+                <p class="mt-3 mb-3">{{ i.title }}</p>
+              </div>
+    
+              
+            </div>
+          </div>
+          {% endfor %}
+    
+          
+        </div>
+         
+        </div>
+
+          <div class="next-btn">
+            <h1></h1>
+            <div class="yesback">
+              <p>Next:</p>
+              <p>Date & Time <i class="icofont-arrow-right"></i></p>
+            </div>
+         </div>
+        </div>
+
+        <!-- Modal -->
+
+        
+        <div class="dots-bars-2" style="margin-top: 300px;"></div>
+    <div class="space-panel5">
+        <div>
+          <p>Click New-Intake Patient Form Blow</p>
+        </div>
+        
+        <div class="intakes">
+          <p id="new-intake" data-toggle="modal" data-target="#exampleModal">New Intake Patient Form</p>
+          <p>|</p>
+          <p id="roll-over" onclick="selectAilment()">Follow Up</p>
+        </div>
+        <div class="next-btn4" onclick="selectService()">
+          <p>Back</p>
+        </div>
+    </div>
+
+    <div class="dots-bars-3" style="margin-top: 300px;"></div>
+        <div class="space-panel2">
+          
+          <div class="date-content">
+            <div class="mycar-aler2">
+              <i class="icofont-power"></i><p>Please select a date to fix an appointment</p>
+            </div>
+          <a id="dateandtime">Select a date to book appointment</a>
+          <div id="datetime-panel">
+              
+                
+              <div class="date-picker-wrapper" id="date-wrapper">
+                <div class="selected-date"></div>
+          
+                <div class="dates-container">
+                  <div class="month">
+                    <div class="arrows prev-month">&lt;</div>
+                    <div class="month-item"></div>
+                    <div class="arrows next-month">&gt;</div>
+                  </div>
+                  <div class="day-week">
+                    <span>Mon</span>
+                    <span>Tues</span>
+                    <span>Wed</span>
+                    <span>Thur</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                  </div>
+                  <div class="days-container"></div>
+                </div>
+              </div>
+           
+            
+            <div class="mytime" id="reload">
+              <h3>Time Slot</h3>
+              <div class="dots-bars-9"></div>
+              <div class="mytime-slot1">
+                <p>Morning</p>
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col bb">
+                     <a class="disable-link" id="tt1" onclick="selectTime('tt1')">09:00 - 09:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt2" onclick="selectTime('tt2')">09:15 - 09:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt3" onclick="selectTime('tt3')">09:30 - 09:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt4" onclick="selectTime('tt4')">09:45 - 10:00</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt5" onclick="selectTime('tt5')">10:00 - 10:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt6" onclick="selectTime('tt6')">10:15 - 10:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt7" onclick="selectTime('tt7')">10:30 - 10:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt8" onclick="selectTime('tt8')">10:45 - 11:00</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt9" onclick="selectTime('tt9')">11:00 - 11:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt10" onclick="selectTime('tt10')">11:15 - 11:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt11" onclick="selectTime('tt11')">11:30 - 11:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt12" onclick="selectTime('tt12')">11:45 - 12:00</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mytime-slot2">
+                <p>Afternoon</p>
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt13" onclick="selectTime('tt13')">13:00 - 13:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt14" onclick="selectTime('tt14')">13:15 - 13:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt15" onclick="selectTime('tt15')">13:30 - 13:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt16" onclick="selectTime('tt16')">13:45 - 14:00</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt17" onclick="selectTime('tt17')">14:00 - 14:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt18" onclick="selectTime('tt18')">14:15 - 14:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt19" onclick="selectTime('tt19')">14:30 - 14:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt20" onclick="selectTime('tt20')">14:45 - 15:00</a>
+                    </div>
+                  </div>
+            
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt21" onclick="selectTime('tt21')">15:00 - 15:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt22" onclick="selectTime('tt22')">15:15 - 15:30</a>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt23" onclick="selectTime('tt23')">15:30 - 15:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt24" onclick="selectTime('tt24')">15:45 - 16:00</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mytime-slot3">
+                <p>Evening</p>
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt25" onclick="selectTime('tt25')">16:00 - 16:15</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt26" onclick="selectTime('tt26')">16:15 - 16:30</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col bb">
+                      <a class="disable-link" id="tt27" onclick="selectTime('tt27')">16:30 - 16:45</a>
+                    </div>
+                    <div class="col bb">
+                      <a class="disable-link" id="tt28" onclick="selectTime('tt28')">16:45 - 17:00</a>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              </div>
+              
+          
+            </div>
+            
+          </div>
+          <div class="next-btn1" id="sec-back">
+            <p onclick="appType()"><i class="icofont-arrow-left"></i>back</p>
+            <div class="yesback1">
+              <p>Next:</p>
+              <p>Date & Time <i class="icofont-arrow-right"></i></p>
+            </div>
+         </div>
+        </div>
+          
+        <div class="dots-bars-4" style="margin-top: 300px;"></div>
+          <div class="space-panel3">
+            <div class="basic-content">
+            <div id="basicdetail">Basic Details</div>
+          <div class="basicdetail-content">
+            <form action="" method="post">
+            <label for="">First Name<a>*</a></label><br>
+            <input type="text" name="firstname" placeholder="Enter your first name" value="{% if request.user.first_name %} {{ request.user.first_name }} {% endif %}" onchange="inputFirstname()" id="firstname">
+            <p></p>
+            <label for="">Last Name<a>*</a></label><br>
+            <input type="text" name="lastname" placeholder="Enter your last name" value="{% if request.user.last_name %} {{ request.user.last_name }} {% endif %}" onchange="inputLastname()" id="lastname">
+            <p></p>
+            <label for="">Email Address<a>*</a></label><br>
+            <input type="email" name="eamiladdress" placeholder="Enter your email address" value="{% if request.user.email %} {{ request.user.email }} {% endif %}" onchange="inputEmail()" id="eamiladdress">
+            <p></p>
+            <label for="">Phone Number<a>*</a></label><br>
+            <input type="tel" name="" id="phone">
+            <p></p>
+
+            <label for="">Please explain your reason for the consultation<a>*</a></label> <br>
+            <textarea name="" id="message" rows="5" placeholder="Please enter here..." onchange="inputMessage()"></textarea>
+          </form>
+          </div>
+        </div>
+        <div class="next-btn2" id="sec-back">
+          <p class="previous-btn2" onclick="backToDateTime()"><i class="icofont-arrow-left"></i>back</p>
+          <div class="save-appointment">
+            <p>Save<i class="icofont-arrow-right"></i></p>
+          </div>
+       </div>
+        </div>
+
+
+        <div class="space-panel4">
+          <div class="summary-content">
+            <img src="{% static 'images/summary.jpg' %}" alt="" srcset="">
+            <a style="color: #223a66;">Summary</a>
+            <p>Your appointment booking summary</p>
+            <a style="color: #223a66;">Customer</a>
+            <p id="app-name"></p>
+            <div class="summary-detail">
+              <div style="padding-right:20px;">
+                <a>Service</a><br>
+                <a style="color: #223a66;" id="app-service"></a>
+              </div>
+              <div class="vl"></div>
+              <div>
+                <a>Date & Time</a><br>
+                <a style="color: #223a66;" id="app-datetime"></a>
+              </div>
+            </div>
+          </div>
+          <div class="next-btn3" id="sec-back">
+            <p class="previous-btn3" onclick="backToNameTab()"><i class="icofont-arrow-left"></i>back</p>
+            <div class="yesback3" onclick="bookAppointment()">
+              
+              <p>Book Appointment<i class="icofont-arrow-right"></i></p>
+            </div>
+         </div>
+        </div>
+          
+          
+
+          
+
+          </div>
+          </div>  
+    </div>
+</div>
+    
+  </section>
+
+  <br>
+  <br>
+
+  <script src="{% static 'js/schedule.js'%}"></script>
+  <script src="{% static 'build/js/utils.js'%}"></script>
+ 
+  
+{% endblock %}

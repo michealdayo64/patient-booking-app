@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FAQ's - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+{% if messages %}
+    {% for message in messages %}
+    <div class="container">
+      <div class="alert alert-warning alert-dismissable" role="alert">
+        <button class="close" data-dismiss="alert">
+          <small><sup>x</sup></small>
+        </button>
+        {{message}}
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+<section class="page-title bg-1" style="background-image: url('{% static "images/doctor.jpeg" %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Frequently Ask Question</span>
+            <h1 class="text-capitalize mb-5 text-lg">FAQ</h1>
+  
+             <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="/" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">></span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">faq</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+
+ 
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p style="color: red;">FAQ's</p>
+          <h3 style="color:#223a66; font-size: 30px;">Get Quick Answered to Your Questions</h3>
+          <div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>How soon can I make an appointment with you?</p></div>
+<div class="panel">
+  <div class="content-panel">
+    <p>Generally, we have appointments available for a week, you can book an appointment online <a href="{% url 'booking' %}">here.</a></p>
+  </div>
+</div>
+
+<div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>Are you accepting new patients?</p></div>
+<div class="panel">
+    <div class="content-panel">
+      <p>Yes, we’re accepting new patients.</p>
+    </div>
+  
+</div>
+
+<div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>Does Kapoor Caress LLC accept my insurance?</p></div>
+<div class="panel">
+  <div class="content-panel">
+    <p>Choose your insurance plan to verify if we’re in-network, or you can pay in cash on your visit.</p>
+  </div>
+  
+</div>
+
+<div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>Can I make an appointment with Kapoor Cares LLC online?</p></div>
+<div class="panel">
+  <div class="content-panel">
+    <p>Yes, you can make an appointment online with us using Zoom or Google meet. It’s simple, secure, and free.</p>
+  </div>
+  
+</div>
+
+<div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>Where is your office located?</p></div>
+<div class="panel">
+  <div class="content-panel">
+    <p>We have 2 office locations in New York, and New Jersey.</p>
+  </div>
+  
+</div>
+
+<div class="accordion"><i class="icofont-rounded-up"></i><i class="icofont-rounded-down"></i><p>What languages does you speak?</p></div>
+<div class="panel">
+  <div class="content-panel">
+    <p>We can offer our services to Hindi, Punjabi, Urdu, Bengali, Bhojpuri and Gujarati speaking patients.</p>
+  </div>
+  
+</div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="write-form">
+              <h4>Write Us Below</h4>
+              <br>
+              <br>
+              <form action="" method="post">{% csrf_token %}
+                <label for="">First Name <a>*</a></label>
+              <input type="text" placeholder="First Name" name="firstname">
+              <p></p>
+              <label for="">Last Name <a>*</a></label>
+              <input type="text" placeholder="Last Name" name="lastname">
+              <p></p>
+              <label for="">Email <a>*</a></label>
+              <input type="email" placeholder="Email" name="email">
+              <p></p>
+              <label for="">Phone Number <a>*</a></label>
+              <input type="number" placeholder="Phone Number" name="phone_no">
+              <p></p>
+              <label for="">Message <a>*</a></label>
+              <textarea name="message" id="" cols="30" rows="4" placeholder="Enter Your Message here"></textarea>
+              <p></p>
+
+              <button>Submit Now <i class="icofont-send-mail"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+    </script>
+{% endblock %}

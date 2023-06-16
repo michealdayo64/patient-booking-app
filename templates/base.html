@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static '/images/AMITOP CARE LCC FAVICON. +++.png' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick.css' %} ">
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick-theme.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/icofont/icofont.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/icofont/fonts/icofont.woff' %}">
+  <link rel="stylesheet" href="{% static 'plugins/icofont/fonts/icofont.woff2' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/fonts/slick.woff' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/fonts/slick.ttf' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/ajax-loader.gif' %}">
+  <link rel="stylesheet" href="{% static 'build/css/demo.css' %}">
+  <link rel="stylesheet" href="{% static 'build/css/intlTelInput.css' %}">
+  
+
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/loading_spinner.css' %}">
+</head>
+<body id="top">
+
+{% include 'snippets/header.html' %}
+
+<section>
+    {% block content %}
+
+    {% endblock %}
+</section>
+
+{% include 'snippets/footer.html' %}
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+    
+    <!-- Main jQuery -->
+    <script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--script src="{% static 'plugins/counterup/jquery.easing.js' %}"></script -->
+    
+    <!-- Slick Slider -->
+    <script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+    <script src="{% static 'plugins/counterup/jquery.waypoints.min.js' %}"></script>
+    <!--script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script -->
+    
+    <script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+    
+    <!-- Google Map -->
+    <script src="{% static 'plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script> 
+    
+    
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+
+
+    
+    
+    
+</body>
+</html>

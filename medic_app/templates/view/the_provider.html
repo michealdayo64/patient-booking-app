@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - AmiTop Care LLC{% endblock %}
+
+{% block content %}<section class="page-title bg-1" style="background-image: url('{% static "images/doctor.jpeg" %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">The Provider</span>
+            <h1 class="text-capitalize mb-5 text-lg">The Provider</h1>
+  
+            <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="/" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">></span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">The Provider</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 col-sm-6">
+				<div class="about-img mt-4 mt-lg-0">
+					<img src="{% static 'images/FACE_A.jpeg' %}" style="border: 2px solid #223a66; margin-bottom: 40px; box-shadow: 2px 8px 36px -5px rgba(0,0,0,0.87);
+					-webkit-box-shadow: 2px 8px 36px -5px rgba(0,0,0,0.87);
+					-moz-box-shadow: 2px 8px 36px -5px rgba(0,0,0,0.87);" alt="" class="img-fluid">
+				</div>
+				<h3 style="margin-top: 20px; color: #223a66;">Aminat PMHNP - BC</h3>
+			</div>
+			<div class="col-lg-6">
+				<div class="about-content pl-4 mt-4 mt-lg-0">
+					<h2 class="title-color">About The Provider</h2>
+					<p class="mt-4 mb-5" style="text-align: justify;">My name is Amina, I am a Board-Certified Psychiatric Mental Health Nurse Practitioner providing services to adults and geriatrics with cultural sensitivities through telehealth/in person/ in senior care facilities.  My background includes working with patients who struggle with a variety of challenges life may present to us, including working with patients struggling with all mental health diagnoses. I provide compassionate and judgement-free care and integrative collaborative approach. I possess strong clinical skills enhanced by natural ability to build rapport with patients and families.  I believe that one of the most important things that I can do as a provider is to partner with my patients and provide education about various treatment options to allow patients to make an informed decision about what the best care for them will be. I provide a thorough psychiatric evaluation that considers current symptoms, prior experiences, medical history, lifestyle, and health habits to identify mental health concerns and work with you to find a treatment plan that best meets your goals. I view medication as one of many tools that we have to build resiliency. I work with patients to develop a comprehensive patient treatment plan that incorporates all aspects of wellness into their care. My purpose is to help patient achieve their mental health goals and mental wellness by working together to find the best treatment plan that incorporates medication/psychotherapy and lifestyle changes.</p>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+  {% endblock %}

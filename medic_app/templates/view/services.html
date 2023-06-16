@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Patient Scheduling - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+ 
+
+<section class="page-title bg-1" style="background-image: url('{% static "images/doctor.jpeg" %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Services</span>
+            <h1 class="text-capitalize mb-5 text-lg">Services</h1>
+  
+            <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">></span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">Services</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-2">
+	<div class="container">
+        <div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>Private Pay and Insurance Options</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 ">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/team/img60.webp' %}" alt="" class="img-fluid w-100">
+					<div class="content content-service">
+						<h4 class="mt-4 mb-2 title-color">60 minutes</h4>
+                        <h4 class="mt-4 mb-2 title-color">First Initial Assessment</h4>
+						<p class="mb-4">The initial assessment is a 60 minute assessment visit. During this assessment you will be given a psychiatric evaluation and asked a series of questions. The goal of this assessment is to properly diagnose the client using the DSM-V criteria so that they will be started on the appropriate psychiatric medication regime and begin their healing process.</p>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/team/img20.webp' %}" alt="" class="img-fluid w-100">
+					<div class="content content-service">
+						<h4 class="mt-4 mb-2 title-color">20 minutes</h4>
+                        <h4 class="mt-4 mb-2 title-color">Follow Up Visit</h4>
+						<p class="mb-4">Follow up appointments are 15–20-minute or longer depending on the specific need of the patient. During follow up appointments, the client’s medication responses and symptoms are evaluated. (Clients should document any concerns and questions they may have in between their appointments so they can be addressed).</p>
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/team/img10.webp' %}" alt="" class="img-fluid w-100">
+					<div class="content content-service">
+						<h4 class="mt-4 mb-2 title-color">10 minutes</h4>
+                        <h4 class="mt-4 mb-2 title-color">Paperwork Completion</h4>
+						<p class="mb-4">All patients are required to fill out paperwork prior to your appointment.</p>
+						
+					</div>
+				</div>
+			</div>
+
+            <div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/team/cancellation.webp' %}" alt="" class="img-fluid w-100">
+					<div class="content content-service">
+						<h4 class="mt-4 mb-2 title-color">Cancellation Policy</h4>
+						<p class="mb-4">If you fail to show up or cancel less than 48 hours prior to your appointment, you will be charged a cancellation fee, per clinic policy.</p>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+  {% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Update profile - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="container">
+      <div class="alert alert-warning alert-dismissable" role="alert">
+        <button class="close" data-dismiss="alert">
+          <small><sup>x</sup></small>
+        </button>
+        {{message}}
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+<section class="page-title bg-1" style="background-image: url('{% static "images/doctor.jpeg" %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Update profile</span>
+            <h1 class="text-capitalize mb-5 text-lg">Update Profile</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+
+  <section>
+    <div class="container">
+        <div id="myProgress">
+            <div id="myBar">10%</div>
+          </div>
+          <br>
+          <p style="color: #01225f;">Personal Information</p>
+          <br>
+          
+          <form method="post" enctype="multipart/form-data" class="all-form">{% csrf_token %}
+            <div class="row">
+              <div class="col p-3">
+                
+                <label for="">Patient First Name *</label>
+                <br>
+                <input type="text" name="first_name" id="">
+              
+              </div>
+              
+              <div class="col p-3">
+                
+                <label for="">Patient Middle Name *</label>
+                <br>
+                <input type="text" name="middle_name" id="">
+                
+              </div>
+              
+              <div class="col p-3">
+                
+                <label for="">Patient Last Name *</label>
+                <br>
+                <input type="text" name="last_name" id="">
+              
+
+              </div>
+             
+              <div class="col p-3">
+                
+                <label for="">Phone Number *</label><br>
+                <input type="tel" name="phone_number" id="">
+                
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label for="">Address *</label><br>
+                <input type="text" name="address" id="">
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+            <br>
+            <input style="background-color: rgb(3, 41, 102); color: white; border-radius: 5px;" type="submit" value="Submit">
+          </form>
+          
+    </div>
+  </section>
+  <br>
+
+{% endblock %}

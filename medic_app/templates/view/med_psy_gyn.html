@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Medication - AmiTop Care LLC{% endblock %}
+
+{% block content %} 
+
+<section class="section service-2">
+	<div class="container">
+        <div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2 style="font-size: 25px; text-decoration: underline;">Psychiatric/Mental Health Services offered</h2>
+				</div>
+			</div>
+		</div>
+
+        <div class="container line-rule">
+            <div class="row justify-content-center">
+                {% for i in ailment_list %}
+                <div class="col-6">
+                    <ul class="ailment-ol">
+                        <li class="ailment">{{ i.title }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+            <br>
+            <br>
+            <hr style="height: 20px; color: black;">
+            <h1>
+                Medication Management</h1>
+                <p>If you struggle with depression, anxiety, or another mental health condition, medication can help control your symptoms so they don’t prevent you from living a life of quality. Good Path Health Services offers expert medication management to adults for a wide range of conditions, including post-traumatic stress disorder (PTSD), attention-deficit hyperactivity disorder, (ADHD), and more. If you think medication may help you gain control of your life, schedule a psychiatric diagnostic evaluation with Onyebuchi Ogbo, PMHNP by calling the office in Dedham, Massachusetts, today, or making an appointment online.</p>
+                <h3>What is medication management?</h3>
+                <p>Antidepressants, anti-anxiety drugs, anti-psychotics, and other types of psychiatric medications help control symptoms so people with mental health conditions can function better.</p>
+                <p>But these powerful medications can be detrimental to your physical and emotional health if the dose is too high, the medicine isn’t right for your condition, or you aren’t using the medication properly.</p>
+            </div>
+    </div>
+</section>
+
+<section class="section" id="psychotherapy">
+    <div class="container line-rule">
+        <hr style="height: 20px; color: black;">
+        <h1>
+            Psychotherapy & Counseling</h1>
+            <p>If you struggle with depression or anxiety, or if you need guidance during a difficult time in your life, psychotherapy or counseling with a qualified mental health provider can make a difference in your emotional well-being. Good Path Health Services, provides holistic, integrative therapies to individuals, couples, youth, and families. To schedule an evaluation for talk therapy services with Good Path Health Services, call the office in Dedham, Massachusetts, today or make an appointment online.</p>
+            <h3>What is psychotherapy?</h3>
+            <p>Psychotherapy is a treatment for emotional and mental health conditions that involve talking to a qualified therapist on an ongoing basis.</p>
+            <p>Over time, psychotherapy can help you better understand your feelings and help you cope with difficult emotions so they don’t interfere with your work, personal relationships, and other aspects of your life.</p>
+        </div>
+</section>
+
+<section class="section" id="psychogenomic">
+    <div class="container line-rule">
+        <hr style="height: 20px; color: black;">
+        <h1>
+            Psychogenomic Testing</h1>
+            <p>Genomic tests offer an affordable way for patients and providers to select medication treatments that will work with an individual’s unique biology. While these tests do not diagnose psychiatric illness, they do provide information on metabolic enzymes  and genetic markers associated with psychiatric concerns.  This information helps providers better understand how psychiatric medications are used in your body.  If you have never been prescribed psychiatric medications, have had poor treatment response or have had many trials of medication that seem ineffective, genomic testing may help point to alternative medications and other treatments.</p>
+            <h3>Genomic Testing Procedure and Process</h3>
+            <p>The testing consists of a simple cheek swab, meticulous paperwork and urgent delivery of the testing kit.  We receive the results within 5 – 7 days through a secure portal where  these are then reviewed. A limited summary and interpretation of the therapeutic options are provided to patients and their providers along with the report.</p>
+            <h3>Payments for Genomic Testing:</h3>
+            
+            <i>Several reliable companies are available for these testing services. These companies negotiate all costs with insurance providers, including Medicaid. <a href="#psychogenomic">Other then the co-pay  ($300- 340), there is no cost to you for the actual testing amount (which can be charges up to $4500).</a>  Following completion of the test,  you will receive an EOB (Evidence of Billing) showing the cost,  please remember that this is NOT a bill,  do NOT pay it. Occasionally, insurance companies follow up with a letter stating that prior authorization is required.  Although these letters are directive,  this appears to be related to automatic correspondences related to patients receiving oncology testing services and not mental health services. </i>
+            <p></p>
+            <i>By law, the genomic testing companies are required to collect a co-pay for the test and will send you a bill directly. The bill will be for the maximum amount ($340). If you meet certain income limitations, you may qualify for a discounted co-pay. You will need to call (or write) to the billing service stated on the invoice to qualify for the lower co-pay. Please do take advantage of the  flexible co-pay option if this applies to you!</i>
+            <p></p>
+            <i>Check here for our <a href="{% url 'services' %}">insurance list.</a> Note that if you DO NOT have an insurance that we accept, there is an additional charge for the office visit charge (includes interview, test processing, establishing medical necessity for testing  and results interpretation).   My normal office rate is $250 to $300.</i>
+        </div>
+</section>
+
+{% endblock %}

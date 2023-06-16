@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}New Intake - AmiTop Care LLC{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container intake-new">
+            <h1>New Patient Form</h1>
+            <form method="post">{% csrf_token %}
+                <label for="">Name<span>*</span></label>
+                <br>
+                <div class="firstlast">
+                <input type="text" name="firstname" placeholder="Firstname" id="" value="" required>
+                <input type="text" name="lastname" placeholder="Lastname" value="" id="" required>
+            </div>
+                <p></p>
+                <div class="all-input">
+                <label for="">Email<span>*</span></label>
+                <br>
+                <input type="email" value="" name="email" placeholder="Email" required>
+                <p></p>
+                <label for="">Phone<span>*</span></label>
+                <br>
+                <input type="text" name="phone_number" value="" id="" placeholder="Phone number" required>
+                <p></p>
+                <label for="">Date of Birth<span>*</span></label>
+                <br>
+                <input type="text" name="dob" id="" placeholder="mm/dd/yyyy" required>
+                <p></p>
+                <label for="">Gender<span>*</span></label>
+            </div>
+                
+                {% for value, name in form.fields.gender.choices %}
+                <div class="mycheck">
+                <input type="radio" value="{{ value }}" name="gender" required>
+                <label>{{ name }}</label>
+                </div>
+                {% endfor %}
+            <p></p>
+            <div class="all-input">
+            <label for="">Address <span>*</span></label>
+            <br>
+            <input type="text" name="" id="" placeholder="Street Address" required>
+            <p></p>
+            <input type="text" name="city" id="" placeholder="City" required>
+            <p></p>
+            <input type="text" name="state" id="" placeholder="State/Region" required>
+            <p></p>
+            <input type="text" name="zipCode" id="" placeholder="Zip/Postal Code" required>
+        </div>
+            <p></p>
+            <div class="mr-sm-2">
+                <label class="mr-sm-2">Best way to reach you? <span>*</span></label>
+                <br>
+                
+                <select class="form-inline mr-sm-2 select" name="best_way_reach" id="best_way_reach">
+                    {% for value, name in form.fields.best_way_reach.choices %}
+                  <option style="color:#01225f" value="{{ value }}">{{ name }}</option>
+                  {% endfor %}
+                </select>
+            
+            </div>
+            <p></p>
+            <div class="mr-sm-2">
+                <label class="mr-sm-2">Best time to reach you? <span>*</span></label>
+                <br>
+                <select class="form-inline mr-sm-2 select" name="best_time_reach" id="best_time_reach">
+                    {% for value, name in form.fields.best_time_reach.choices %}
+                  <option style="color: #01225f;" value="{{ value }}">{{ name }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <p></p>
+            
+                <div class="mr-sm-2">
+                    <label class="mr-sm-2">Insurance or Private Pay? <span>*</span></label>
+                    <br>
+                    <select class="form-inline mr-sm-2 select" name="insurance_or_pay" id="insurance_or_pay">
+                        {% for value, name in form.fields.insurance_or_pay.choices %}
+                      <option style="color: #01225f;" value="{{ value }}">{{ name }}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+            <p></p>
+            <div class="all-input">
+            <label for="">Insurance Carrier <san>*</san></label>
+            <br>
+            <input type="text" name="my_insure_carrier" id="" required>
+            <p></p>
+            <label for="">Insurance # <span>*</span></label>
+            <br>
+            <input type="text" name="insurance" id="" required>
+        </div>
+            <p></p>
+            <label for="">Do you have a Secondary Insurance?</label>
+       
+            <br>
+            {% for value, name in form.fields.do_you_have_secondary_insurance.choices %}
+            <div class="mycheck">
+                <input type="radio" name="do_you_have_secondary_insurance" value="{{ value }}">
+                <label>{{ name }}</label>
+                </div>
+                {% endfor %}
+               
+            <p></p>
+            <div class="all-input">
+            <label for="">Secondary Insurance Carrier</label>
+            <br>
+            <input type="text" name="secondary_insurance_carrier" id="">
+            <p></p>
+            <label for="">Secondary Insurance #</label>
+            <br>
+            <input type="text" name="secondary_insurance" id="">
+            <p></p>
+            <label for="">Current Psychiatric Diagnosis <span>*</span></label>
+            <br>
+            <input type="text" name="current_psychiatric_diagnosis" id="" required>
+            <p></p>
+            <label for="">Current Medications <span>*</span></label>
+            <br>
+            <input type="text" name="current_medications" id="" required>
+        </div>
+            <p></p>
+            <label for="">Do you have a current psychiatric prescriber?</label>
+            <br>
+            {% for value, name in form.fields.current_psychiatric_prescriber.choices %}
+            <div class="mycheck">
+                <input type="radio" name="current_psychiatric_prescriber" value="{{ value }}" required>
+                <label style="color: ;">{{ name }}</label>
+                </div>
+                {% endfor %}
+                
+            <p></p>
+            <div class="all-input">
+            <label for="">History of Suicide Attempts? (if so, when)</label>
+            <br>
+            <input type="text" name="history_of_suicide_attempts" id="">
+            <p></p>
+            <label for="">History of Self Injurious Behavior? (such a cutting, etc.) <span>*</span></label>
+            <br>
+            <input type="text" name="history_of_self_injurious_behavior" id="" required>
+            <p></p>
+            <label for="">History of Eating Disorder? (such as anorexia/ bulimia) <span>*</span></label>
+            <br>
+            <input type="text" name="history_of_eating_disorder" id="">
+            <p></p>
+            <label for="">History of Substance Abuse / Detox? <span>*</span></label>
+            <br>
+            <input type="text" name="history_of_substance_abuse" id="">
+        </div>
+            <p></p>
+            <label for="">Emergency Contact:</label>
+            <br>
+            <div class="firstlast">
+            <input type="text" name="emergency_contact_firstname" id="" placeholder="First Name">
+            <input type="text" name="emergency_contact_phone" id="" placeholder="Phone Number">
+        </div>
+            <p></p>
+            <div class="all-input">
+            <label for="">Referred By:</label>
+            <br>
+            <input type="text" name="referred_by" id="">
+            <p></p>
+            <label for="">Additional Comments:</label>
+            <br>
+            <input type="text" name="additional_comments" id="">
+        </div> 
+        <p></p>
+        <input type="submit" value="Submit">
+            </form>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+   
+
+{% endblock %}

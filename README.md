@@ -1,5 +1,5 @@
 # pateint-booking-app
-This is a booking application where patients can book an appointment online to see a doctor. It is build using python, django, postgresql, html, css and javascript. The project is live and can be viewed from the link https://amitopcare.com/
+This is a booking application where patients can book an appointment online to see a doctor. It is build using python, django, postgresql, html, css and javascript. The project is live and can be viewed from the link here https://amitopcare.com/
 
 1. Home page.
    ![Screen Shot 2023-06-15 at 4 26 02 PM](https://github.com/michealdayo64/pateint-booking-app/assets/55289122/16f3bad9-6d06-44bc-84b6-0ec816a13d77)
